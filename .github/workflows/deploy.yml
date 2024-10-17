@@ -6,15 +6,7 @@ on:
       - main  # Triggers the workflow on push to the main branch
 
 jobs:
-  ai-generate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2  # Check out the repository code
-      - name: Generate YAML with AI
-        run: python generate_yaml.py  # Run the AI script to generate deploy.yml
-
   build:
-    needs: ai-generate  # Ensure this job runs after the AI generation
     runs-on: ubuntu-latest
     strategy:
       matrix:
